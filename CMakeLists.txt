@@ -90,11 +90,6 @@ if(${ABSL_RUN_TESTS})
   # enable CTest.  This will set BUILD_TESTING to ON unless otherwise specified
   # on the command line
   include(CTest)
-  enable_testing()
-endif()
-
-## check targets
-if(BUILD_TESTING)
 
   if(${ABSL_USE_GOOGLETEST_HEAD})
     include(CMake/Googletest/DownloadGTest.cmake)
