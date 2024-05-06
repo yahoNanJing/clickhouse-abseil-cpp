@@ -617,7 +617,11 @@ template <typename T>
 using underlying_type_t = typename std::underlying_type<T>::type;
 
 template <typename T>
+#if _LIBCPP_STD_VER < 17
 using result_of_t = typename std::result_of<T>::type;
+#else
+using result_of_t = typename std::invoke_result<T>::type;
+#endif
 
 namespace type_traits_internal {
 // In MSVC we can't probe std::hash or stdext::hash because it triggers a
